@@ -1,18 +1,18 @@
-package com.vinyls.albums
+package com.vinyls.albums.list
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
 
-import com.vinyls.databinding.FragmentAlbumsBinding
+import com.vinyls.databinding.FragmentAlbumsListBinding
 
-class AlbumsFragment : Fragment() {
+class AlbumsListFragment : Fragment() {
 
-    private var _binding: FragmentAlbumsBinding? = null
+    private var _binding: FragmentAlbumsListBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,12 +22,12 @@ class AlbumsFragment : Fragment() {
     ): View {
         val albumsViewModel = ViewModelProvider(this)[AlbumsViewModel::class.java]
 
-        _binding = FragmentAlbumsBinding.inflate(inflater, container, false)
+        _binding = FragmentAlbumsListBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textAlbums
-        albumsViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        val albumsList: RecyclerView = binding.albumsList
+        albumsViewModel.albums.observe(viewLifecycleOwner) {
+            albumsList.adapter = AlbumsListAdapter(it)
         }
 
         return root

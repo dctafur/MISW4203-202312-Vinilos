@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_albums"
-        android:name="com.vinyls.albums.AlbumsFragment"
+        android:name="com.vinyls.albums.list.AlbumsListFragment"
         android:label="@string/title_albums"
-        tools:layout="@layout/fragment_albums" />
+        tools:layout="@layout/fragment_albums_list" />
 
     <fragment
         android:id="@+id/navigation_performers"
