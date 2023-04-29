@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_collectors"
-        android:name="com.vinyls.collectors.CollectorsFragment"
+        android:name="com.vinyls.collectors.list.CollectorListFragment"
         android:label="@string/title_collectors"
-        tools:layout="@layout/fragment_collectors" />
+        tools:layout="@layout/fragment_collector_list" />
 </navigation>
