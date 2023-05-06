@@ -3,22 +3,24 @@ package com.vinyls.collectors.list
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 
 import com.vinyls.R
 import com.vinyls.collectors.Collector
 
-class CollectorListAdapter(
-    private val dataset: List<Collector>
-) : RecyclerView.Adapter<CollectorListAdapter.CollectorViewHolder>() {
+class CollectorsListAdapter(
+    private val dataset: List<Collector>,
+    private val listener: OnClickListener
+) : RecyclerView.Adapter<CollectorsListAdapter.CollectorViewHolder>() {
+
+    interface OnClickListener {
+        fun onClick(item: Collector)
+    }
 
     class CollectorViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val email: TextView = view.findViewById(R.id.collector_email)
         val nameView: TextView = view.findViewById(R.id.collector_name)
+        val emailView: TextView = view.findViewById(R.id.collector_email)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CollectorViewHolder {
@@ -29,9 +31,9 @@ class CollectorListAdapter(
 
     override fun onBindViewHolder(holder: CollectorViewHolder, position: Int) {
         val item = dataset[position]
-
         holder.nameView.text = item.name
-        holder.email.text = item.email
+        holder.emailView.text = item.email
+        holder.itemView.setOnClickListener { listener.onClick(item) }
     }
 
     override fun getItemCount(): Int {

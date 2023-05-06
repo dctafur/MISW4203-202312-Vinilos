@@ -5,6 +5,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 private const val BASE_URL = "https://misw-4203-vynils.herokuapp.com/"
 
@@ -17,12 +18,15 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-interface CollectorService {
+interface CollectorsService {
 
     @GET("collectors")
     suspend fun getCollectors(): List<Collector>
+
+    @GET("collectors/{id}")
+    suspend fun getCollector(@Path("id") id: Int): Collector
 }
 
-object CollectorApi {
-    val retrofitService: CollectorService by lazy { retrofit.create(CollectorService::class.java) }
+object CollectorsApi {
+    val retrofitService: CollectorsService by lazy { retrofit.create(CollectorsService::class.java) }
 }

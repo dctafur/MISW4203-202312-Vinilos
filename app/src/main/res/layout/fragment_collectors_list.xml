@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".collectors.list.CollectorListFragment">
+    tools:context=".collectors.list.CollectorsListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/collector_list"
+        android:id="@+id/collectors_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="6dp"
