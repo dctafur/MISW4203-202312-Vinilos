@@ -33,7 +33,7 @@ class CollectorListTest {
 
     @Test
     fun ensureAlbumListWork() {
-        onView(withId(R.id.navigation_collectors)).perform(click())
+        onView(withId(R.id.navigation_collectors_list)).perform(click())
         Thread.sleep(4000)
         for (i in collectors.indices) {
             onView(withId(R.id.collector_list))

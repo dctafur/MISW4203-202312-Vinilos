@@ -35,7 +35,7 @@ class AlbumsListTest {
 
     @Test
     fun ensureAlbumListWork() {
-        onView(withId(R.id.navigation_albums)).perform(click())
+        onView(withId(R.id.navigation_albums_list)).perform(click())
         Thread.sleep(1000)
         for (i in albums.indices) {
             onView(withId(R.id.albums_list))

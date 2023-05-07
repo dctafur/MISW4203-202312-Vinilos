@@ -8,13 +8,13 @@ import kotlinx.coroutines.launch
 import java.lang.Exception
 
 import com.vinyls.collectors.Collector
-import com.vinyls.collectors.CollectorRepository
+import com.vinyls.collectors.CollectorsRepository
 
 enum class CollectorStatus { LOADING, ERROR, DONE }
 
-class CollectorListViewModel : ViewModel() {
+class CollectorsListViewModel : ViewModel() {
 
-    private val _collectorRepository = CollectorRepository()
+    private val _collectorsRepository = CollectorsRepository()
 
     private val _status = MutableLiveData<CollectorStatus>()
     val status: LiveData<CollectorStatus> = _status
@@ -30,7 +30,7 @@ class CollectorListViewModel : ViewModel() {
         viewModelScope.launch {
             _status.value = CollectorStatus.LOADING
             try {
-                _collectors.value = _collectorRepository.getCollectors()
+                _collectors.value = _collectorsRepository.getCollectors()
                 _status.value = CollectorStatus.DONE
             } catch (e: Exception) {
                 _collectors.value = listOf()

@@ -3,23 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_albums">
+    app:startDestination="@+id/navigation_albums_list">
 
     <fragment
-        android:id="@+id/navigation_albums"
+        android:id="@+id/navigation_albums_list"
         android:name="com.vinyls.albums.list.AlbumsListFragment"
         android:label="@string/title_albums"
         tools:layout="@layout/fragment_albums_list" />
 
     <fragment
-        android:id="@+id/navigation_performers"
-        android:name="com.vinyls.performers.list.PerformerListFragment"
+        android:id="@+id/navigation_performers_list"
+        android:name="com.vinyls.performers.PerformersFragment"
         android:label="@string/title_performers"
         tools:layout="@layout/fragment_performer_list" />
 
     <fragment
-        android:id="@+id/navigation_collectors"
-        android:name="com.vinyls.collectors.list.CollectorListFragment"
+        android:id="@+id/navigation_collectors_list"
+        android:name="com.vinyls.collectors.list.CollectorsListFragment"
         android:label="@string/title_collectors"
-        tools:layout="@layout/fragment_collector_list" />
+        tools:layout="@layout/fragment_collectors_list" />
+
 </navigation>
