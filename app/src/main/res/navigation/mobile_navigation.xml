@@ -15,11 +15,12 @@
         android:id="@+id/navigation_performers_list"
         android:name="com.vinyls.performers.PerformersFragment"
         android:label="@string/title_performers"
-        tools:layout="@layout/fragment_performers" />
+        tools:layout="@layout/fragment_performer_list" />
 
     <fragment
         android:id="@+id/navigation_collectors_list"
         android:name="com.vinyls.collectors.list.CollectorsListFragment"
         android:label="@string/title_collectors"
         tools:layout="@layout/fragment_collectors_list" />
+
 </navigation>
