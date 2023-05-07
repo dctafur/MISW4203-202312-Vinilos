@@ -34,7 +34,7 @@ class PerformerListTest {
 
     @Test
     fun ensurePerformerListWork() {
-        onView(withId(R.id.navigation_performers)).perform(click())
+        onView(withId(R.id.navigation_performers_list)).perform(click())
         Thread.sleep(4000)
         for (i in performers.indices) {
             onView(withId(R.id.performer_list))
