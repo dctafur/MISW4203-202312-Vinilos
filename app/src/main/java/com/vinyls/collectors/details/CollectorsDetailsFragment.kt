@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
@@ -25,6 +27,9 @@ class CollectorsDetailsFragment : BottomSheetDialogFragment() {
 
         _binding = FragmentCollectorsDetailsBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        val closeButton: ImageButton = binding.closeButton
+        closeButton.setOnClickListener { dismiss() }
 
         val nameView: TextView = binding.collectorName
         val emailView: TextView = binding.collectorEmail

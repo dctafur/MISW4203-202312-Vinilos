@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_performers_list"
-        android:name="com.vinyls.performers.PerformersFragment"
+        android:name="com.vinyls.performers.list.PerformerListFragment"
         android:label="@string/title_performers"
         tools:layout="@layout/fragment_performer_list" />
 
