@@ -3,6 +3,12 @@ package com.vinyls.albums
 class AlbumsRepository {
 
     suspend fun getAlbums(): List<Album> {
-        return AlbumsApi.retrofitService.getAlbums()
+        val albums = AlbumsCacheManager.getInstance().getAlbums()
+        if (albums.isNullOrEmpty()) {
+            val items = AlbumsApi.retrofitService.getAlbums()
+            AlbumsCacheManager.getInstance().addAlbums(items)
+            return items
+        }
+        return albums
     }
 }
