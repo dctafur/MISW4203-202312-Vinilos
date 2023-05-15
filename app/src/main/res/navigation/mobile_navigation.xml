@@ -23,4 +23,10 @@
         android:label="@string/title_collectors"
         tools:layout="@layout/fragment_collectors_list" />
 
+    <fragment
+        android:id="@+id/navigation_album_create"
+        android:name="com.vinyls.albums.create.AlbumCreateFragment"
+        android:label="@string/title_album_create"
+        tools:layout="@layout/fragment_album_create" />
+
 </navigation>
