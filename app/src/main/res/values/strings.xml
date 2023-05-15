@@ -1,8 +1,19 @@
 <resources>
     <string name="app_name">Vinyls</string>
     <string name="title_albums">Álbumes</string>
+    <string name="title_album_create">Crear Álbum</string>
     <string name="title_performers">Artistas</string>
     <string name="title_collectors">Coleccionistas</string>
     <string name="status_image">Status image</string>
     <string name="album_cover">Album cover</string>
+    <string name="performer_image">Performer image</string>
+    <string name="close">Close bottom sheet</string>
+    <string name="save_album">Guardar Álbum</string>
+    <string name="name_album">Nombre Álbum</string>
+    <string name="url_album">Url imagen portada</string>
+    <string name="date_album">Fecha de lanzamiento</string>
+    <string name="description_album">Descripción</string>
+    <string name="gender_album">Género</string>
+    <string name="seal_album">Sello discográfico</string>
+    <string name="saved_album">Álbum guardado</string>
 </resources>

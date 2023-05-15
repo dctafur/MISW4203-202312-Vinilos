@@ -2,13 +2,13 @@ package com.vinyls
 
 import android.os.Bundle
 
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 import com.vinyls.databinding.ActivityMainBinding
 
@@ -26,7 +26,11 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
 
         val appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.navigation_albums, R.id.navigation_performers, R.id.navigation_collectors)
+            setOf(
+                R.id.navigation_albums_list,
+                R.id.navigation_performers_list,
+                R.id.navigation_collectors_list,
+            )
         )
 
         setupActionBarWithNavController(navController, appBarConfiguration)

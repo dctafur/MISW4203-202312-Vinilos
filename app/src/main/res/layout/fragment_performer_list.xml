@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".albums.list.AlbumsListFragment">
+    tools:context=".performers.list.PerformerListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/albums_list"
+        android:id="@+id/performer_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="6dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintTop_toTopOf="parent"
-        app:spanCount="2" />
+        app:spanCount="1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

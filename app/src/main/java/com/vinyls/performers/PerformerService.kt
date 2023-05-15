@@ -1,12 +1,11 @@
-package com.vinyls.albums
+package com.vinyls.performers
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import com.vinyls.performers.Performer
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.POST
 
 private const val BASE_URL = "https://misw-4203-vynils.herokuapp.com/"
 
@@ -19,15 +18,12 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-interface AlbumsService {
+interface PerformerService {
 
-    @GET("albums")
-    suspend fun getAlbums(): List<Album>
-
-    @GET("albums/{id}")
-    suspend fun getAlbum(@Path("id") id: Int): Album
+    @GET("bands")
+    suspend fun getPerformers(): List<Performer>
 }
 
-object AlbumsApi {
-    val retrofitService: AlbumsService by lazy { retrofit.create(AlbumsService::class.java) }
+object PerformerApi {
+    val retrofitService: PerformerService by lazy { retrofit.create(PerformerService::class.java) }
 }
