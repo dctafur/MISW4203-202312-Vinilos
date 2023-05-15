@@ -3,11 +3,8 @@ package com.vinyls.collectors.list
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 
 import com.vinyls.R
 import com.vinyls.collectors.Collector
