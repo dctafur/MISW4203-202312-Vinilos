@@ -6,6 +6,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.POST
 
 private const val BASE_URL = "https://misw-4203-vynils.herokuapp.com/"
 
@@ -25,6 +26,7 @@ interface AlbumsService {
 
     @GET("albums/{id}")
     suspend fun getAlbum(@Path("id") id: Int): Album
+
 }
 
 object AlbumsApi {
