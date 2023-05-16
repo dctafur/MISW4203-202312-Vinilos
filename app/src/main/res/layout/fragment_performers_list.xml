@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".performers.list.PerformerListFragment">
+    tools:context=".performers.list.PerformersListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/performer_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="6dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="1" />
 
