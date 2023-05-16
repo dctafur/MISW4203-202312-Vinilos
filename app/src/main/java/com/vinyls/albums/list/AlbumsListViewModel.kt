@@ -12,14 +12,14 @@ import java.lang.Exception
 import com.vinyls.albums.Album
 import com.vinyls.albums.AlbumsRepository
 
-enum class AlbumsListStatus { LOADING, ERROR, DONE }
+enum class AlbumsStatus { LOADING, ERROR, DONE }
 
-class AlbumsListViewModel : ViewModel() {
+class AlbumsViewModel : ViewModel() {
 
     private val _albumsRepository = AlbumsRepository()
 
-    private val _status = MutableLiveData<AlbumsListStatus>()
-    val status: LiveData<AlbumsListStatus> = _status
+    private val _status = MutableLiveData<AlbumsStatus>()
+    val status: LiveData<AlbumsStatus> = _status
 
     private val _albums = MutableLiveData<List<Album>>()
     val albums: LiveData<List<Album>> = _albums
@@ -30,13 +30,13 @@ class AlbumsListViewModel : ViewModel() {
 
     private fun getAlbums() {
         viewModelScope.launch {
-            _status.value = AlbumsListStatus.LOADING
+            _status.value = AlbumsStatus.LOADING
             try {
                 _albums.value = _albumsRepository.getAlbums()
-                _status.value = AlbumsListStatus.DONE
+                _status.value = AlbumsStatus.DONE
             } catch (e: Exception) {
                 _albums.value = listOf()
-                _status.value = AlbumsListStatus.ERROR
+                _status.value = AlbumsStatus.ERROR
             }
         }
     }

@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_performers_list"
-        android:name="com.vinyls.performers.list.PerformersListFragment"
+        android:name="com.vinyls.performers.list.PerformerListFragment"
         android:label="@string/title_performers"
-        tools:layout="@layout/fragment_performers_list" />
+        tools:layout="@layout/fragment_performer_list" />
 
     <fragment
         android:id="@+id/navigation_collectors_list"
@@ -23,4 +23,9 @@
         android:label="@string/title_collectors"
         tools:layout="@layout/fragment_collectors_list" />
 
+    <fragment
+        android:id="@+id/navigation_album_create"
+        android:name="com.vinyls.albums.create.AlbumCreateFragment"
+        android:label="@string/title_album_create"
+        tools:layout="@layout/fragment_album_create" />
 </navigation>

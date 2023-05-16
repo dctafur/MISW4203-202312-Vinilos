@@ -17,19 +17,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/green_500"
-            android:gravity="end"
             android:orientation="horizontal"
-            android:paddingHorizontal="12dp"
-            android:paddingTop="12dp">
+            android:gravity="end"
+            android:paddingTop="10dp"
+            android:paddingHorizontal="8dp"
+            android:background="@color/green_500">
 
             <ImageButton
                 android:id="@+id/close_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:contentDescription="@string/close_dialog"
+                android:contentDescription="@string/close"
                 android:src="@drawable/ic_close_black_24dp"
+                android:background="@null"
                 app:tint="@color/white" />
 
         </LinearLayout>
@@ -38,11 +38,11 @@
             android:id="@+id/collector_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@color/green_500"
             android:orientation="vertical"
-            android:paddingHorizontal="12dp"
-            android:paddingBottom="12dp">
+            android:paddingBottom="15dp"
+            android:paddingHorizontal="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/green_500">
 
             <TextView
                 android:id="@+id/collector_name"
@@ -50,8 +50,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:textAlignment="center"
-                android:textAppearance="?attr/textAppearanceHeadline5"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textAppearance="?attr/textAppearanceHeadline5" />
 
             <TextView
                 android:id="@+id/collector_email"
@@ -59,16 +59,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
                 android:textAlignment="center"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textAppearance="?attr/textAppearanceBody2" />
 
             <TextView
                 android:id="@+id/collector_telephone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textAppearance="?attr/textAppearanceBody2" />
 
         </LinearLayout>
 
@@ -76,7 +76,7 @@
             android:id="@+id/collector_albums_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingHorizontal="6dp"
+            android:padding="6dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="2" />
 

@@ -1,4 +1,4 @@
-package com.vinyls.performers
+package com.vinyls.collectors
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -17,12 +17,12 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-interface PerformerService {
+interface CollectorService {
 
-    @GET("bands")
-    suspend fun getPerformers(): List<Performer>
+    @GET("collectors")
+    suspend fun getCollectors(): List<Collector>
 }
 
-object PerformerApi {
-    val retrofitService: PerformerService by lazy { retrofit.create(PerformerService::class.java) }
+object CollectorApi {
+    val retrofitService: CollectorService by lazy { retrofit.create(CollectorService::class.java) }
 }

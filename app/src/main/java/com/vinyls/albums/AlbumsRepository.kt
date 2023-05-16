@@ -11,8 +11,4 @@ class AlbumsRepository {
         }
         return albums
     }
-
-    suspend fun createAlbum(album: Album) {
-        AlbumsCacheManager.getInstance().addAlbum(album)
-    }
 }

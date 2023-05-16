@@ -7,7 +7,7 @@
     <string name="status_image">Status image</string>
     <string name="album_cover">Album cover</string>
     <string name="performer_image">Performer image</string>
-    <string name="close_dialog">Close bottom sheet</string>
+    <string name="close">Close bottom sheet</string>
     <string name="save_album">Guardar Álbum</string>
     <string name="name_album">Nombre Álbum</string>
     <string name="url_album">Url imagen portada</string>
@@ -16,9 +16,4 @@
     <string name="gender_album">Género</string>
     <string name="seal_album">Sello discográfico</string>
     <string name="saved_album">Álbum guardado</string>
-    <string name="create_album">Create Album</string>
-    <string name="add_album_title">Agregar álbum</string>
-    <string name="album_name_hint">Nombre</string>
-    <string name="cancel_album_label">Cancelar</string>
-    <string name="add_album_label">Agregar</string>
 </resources>
