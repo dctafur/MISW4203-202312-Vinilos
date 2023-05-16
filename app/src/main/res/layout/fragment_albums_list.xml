@@ -12,6 +12,7 @@
         android:layout_height="match_parent"
         android:paddingHorizontal="6dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintTop_toTopOf="parent"
         app:spanCount="2" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
