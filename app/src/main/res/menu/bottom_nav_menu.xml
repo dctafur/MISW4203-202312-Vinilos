@@ -16,9 +16,4 @@
         android:icon="@drawable/ic_people_black_24dp"
         android:title="@string/title_collectors" />
 
-    <item
-        android:id="@+id/navigation_album_create"
-        android:icon="@drawable/ic_library_music_black_24dp"
-        android:title="@string/title_album_create" />
-
 </menu>

@@ -54,5 +54,4 @@ class AlbumsCreateFragment : BottomSheetDialogFragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }
