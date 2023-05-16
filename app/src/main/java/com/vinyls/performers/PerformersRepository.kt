@@ -1,6 +1,6 @@
 package com.vinyls.performers
 
-class PerformerRepository {
+class PerformersRepository {
 
     suspend fun getPerformers(): List<Performer> {
         val performers = PerformersCacheManager.getInstance().getPerformers()

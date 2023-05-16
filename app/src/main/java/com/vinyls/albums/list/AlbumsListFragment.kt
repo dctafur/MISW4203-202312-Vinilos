@@ -9,8 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.vinyls.R
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
+import com.vinyls.albums.create.AlbumsCreateFragment
 import com.vinyls.databinding.FragmentAlbumsListBinding
 
 class AlbumsListFragment : Fragment() {
@@ -21,14 +22,20 @@ class AlbumsListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        val albumsViewModel = ViewModelProvider(this)[AlbumsViewModel::class.java]
+        val albumsListViewModel = ViewModelProvider(this)[AlbumsListViewModel::class.java]
 
         _binding = FragmentAlbumsListBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val albumsList: RecyclerView = binding.albumsList
-        albumsViewModel.albums.observe(viewLifecycleOwner) {
+        albumsListViewModel.albums.observe(viewLifecycleOwner) {
             albumsList.adapter = AlbumsListAdapter(it)
+        }
+
+        val addAlbum: FloatingActionButton = binding.addAlbum
+        addAlbum.setOnClickListener {
+            val dialog = AlbumsCreateFragment()
+            dialog.show(childFragmentManager, "albums-create")
         }
 
         return root

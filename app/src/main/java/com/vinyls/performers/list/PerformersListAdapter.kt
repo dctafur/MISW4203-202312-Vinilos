@@ -12,9 +12,9 @@ import coil.load
 import com.vinyls.R
 import com.vinyls.performers.Performer
 
-class PerformerListAdapter(
+class PerformersListAdapter(
     private val dataset: List<Performer>
-) : RecyclerView.Adapter<PerformerListAdapter.PerformerViewHolder>() {
+) : RecyclerView.Adapter<PerformersListAdapter.PerformerViewHolder>() {
 
     class PerformerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.performer_image)
