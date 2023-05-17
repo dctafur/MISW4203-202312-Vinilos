@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.vinyls.albums.Album
 
 import com.vinyls.albums.create.AlbumsCreateFragment
 import com.vinyls.databinding.FragmentAlbumsListBinding
@@ -29,7 +31,11 @@ class AlbumsListFragment : Fragment() {
 
         val albumsList: RecyclerView = binding.albumsList
         albumsListViewModel.albums.observe(viewLifecycleOwner) {
-            albumsList.adapter = AlbumsListAdapter(it)
+            albumsList.adapter = AlbumsListAdapter(it, object: AlbumsListAdapter.OnClickListener {
+                override fun onClick(item: Album) {
+                    Toast.makeText(context, "Clicked item", Toast.LENGTH_SHORT).show()
+                }
+            })
         }
 
         val addAlbum: FloatingActionButton = binding.addAlbum

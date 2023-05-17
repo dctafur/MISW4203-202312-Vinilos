@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textfield.TextInputLayout
 
@@ -33,18 +34,36 @@ class AlbumsCreateFragment : BottomSheetDialogFragment() {
         cancelButton.setOnClickListener { dismiss() }
 
         val name: TextInputLayout = binding.nameField
+        val cover: TextInputLayout = binding.coverField
+        val description: TextInputLayout = binding.descriptionField
+        val releaseDate: TextInputLayout = binding.releaseDateField
+        val genre: TextInputLayout = binding.genreField
 
         val addButton: Button = binding.addButton
         addButton.setOnClickListener {
             val album = Album(
                 id = 0,
                 name = name.editText?.text.toString(),
-                cover = "",
-                description = "",
-                releaseDate = "",
-                genre = "",
+                cover = cover.editText?.text.toString(),
+                description = description.editText?.text.toString(),
+                releaseDate = releaseDate.editText?.text.toString(),
+                genre = genre.editText?.text.toString(),
             )
             albumsCreateViewModel.createAlbum(album)
+        }
+
+        albumsCreateViewModel.status.observe(viewLifecycleOwner) { status ->
+            when(status) {
+                AlbumsCreateStatus.DONE -> {
+                    Toast.makeText(context, "¡Se ha asociado el album exitosamente!", Toast.LENGTH_SHORT).show()
+                    dismiss()
+                }
+                AlbumsCreateStatus.ERROR -> {
+                    Toast.makeText(context, "¡Ha ocurrido un error inesperado!", Toast.LENGTH_SHORT).show()
+                    dismiss()
+                }
+                else -> {}
+            }
         }
 
         return root

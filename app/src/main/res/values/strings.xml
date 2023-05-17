@@ -21,4 +21,10 @@
     <string name="album_name_hint">Nombre</string>
     <string name="cancel_album_label">Cancelar</string>
     <string name="add_album_label">Agregar</string>
+    <string name="options">Opciones</string>
+    <string name="aggregate_album">Asignar álbum</string>
+    <string name="album_cover_hint">URL de imágen</string>
+    <string name="album_release_date_hint">Fecha de lanzamiento</string>
+    <string name="album_description_hint">Descripción</string>
+    <string name="album_genre_hint">Género</string>
 </resources>
