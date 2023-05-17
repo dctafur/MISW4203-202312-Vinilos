@@ -13,8 +13,13 @@ import com.vinyls.R
 import com.vinyls.performers.Performer
 
 class PerformersListAdapter(
-    private val dataset: List<Performer>
+    private val dataset: List<Performer>,
+    private val listener: OnClickListener
 ) : RecyclerView.Adapter<PerformersListAdapter.PerformerViewHolder>() {
+
+    interface OnClickListener {
+        fun onClick(item: Performer)
+    }
 
     class PerformerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.performer_image)
@@ -38,6 +43,7 @@ class PerformersListAdapter(
                 error(R.drawable.ic_broken_image_black_24dp)
             }
         }
+        holder.itemView.setOnClickListener { listener.onClick(item) }
     }
 
     override fun getItemCount(): Int {
