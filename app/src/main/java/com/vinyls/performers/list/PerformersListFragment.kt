@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 
+import com.vinyls.performers.Performer
+import com.vinyls.performers.details.PerformersDetailsFragment
 import com.vinyls.databinding.FragmentPerformersListBinding
 
 class PerformersListFragment : Fragment() {
@@ -24,9 +26,18 @@ class PerformersListFragment : Fragment() {
         _binding = FragmentPerformersListBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val performerList: RecyclerView = binding.performerList
+        val performerList: RecyclerView = binding.performersList
         performerViewModel.performers.observe(viewLifecycleOwner) {
-            performerList.adapter = PerformersListAdapter(it)
+            performerList.adapter = PerformersListAdapter(it, object : PerformersListAdapter.OnClickListener {
+                override fun onClick(item: Performer) {
+                    val bundle = Bundle()
+                    val dialog = PerformersDetailsFragment()
+                    bundle.putInt("id", item.id)
+                    dialog.arguments = bundle
+                    dialog.show(childFragmentManager, "performers-details")
+                }
+            })
+            //PerformersListAdapter(it)
         }
 
         return root
