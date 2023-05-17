@@ -13,6 +13,7 @@ class AlbumsRepository {
     }
 
     suspend fun createAlbum(album: Album) {
+        // TODO: use the AlbumsService create album method
         AlbumsCacheManager.getInstance().addAlbum(album)
     }
 }

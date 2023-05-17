@@ -36,10 +36,6 @@ class CollectorsRepository {
         val body = AggregateAlbum(price = 0, status = "Active")
         val albumCollector = CollectorsApi.retrofitService.aggregateAlbum(collectorId, album.id, body)
         val collectorAlbums = getCollectorAlbums(collectorId)
-        if (collectorAlbums.isEmpty()) {
-            val items = listOf(albumCollector.album)
-            CollectorsCacheManager.getInstance().addCollectorAlbums(collectorId, items)
-        }
         val items = arrayListOf(albumCollector.album)
         items.addAll(collectorAlbums)
         CollectorsCacheManager.getInstance().addCollectorAlbums(collectorId, items)
