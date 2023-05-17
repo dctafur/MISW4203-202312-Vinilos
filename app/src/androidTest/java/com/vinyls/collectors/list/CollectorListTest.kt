@@ -19,8 +19,8 @@ import com.vinyls.collectors.Collector
 import com.vinyls.atPosition
 
 var collectors: Array<Collector> = arrayOf(
-    Collector(name = "Manolo Bellon", email = "manollo@caracol.com.co", id = 1, telephone = "", collectorAlbums = listOf()),
-    Collector(name = "Jaime Monsalve", email = "jmonsalve@rtvc.com.co", id = 1, telephone = "", collectorAlbums = listOf()),
+    Collector(name = "Manolo Bellon", email = "manollo@caracol.com.co", id = 1, telephone = ""),
+    Collector(name = "Jaime Monsalve", email = "jmonsalve@rtvc.com.co", id = 1, telephone = ""),
 )
 
 @LargeTest
@@ -37,7 +37,7 @@ class CollectorListTest {
         Thread.sleep(4000)
         for (i in collectors.indices) {
             onView(withId(R.id.collectors_list))
-            .check(matches(atPosition(i, hasDescendant(withText(collectors[i].name)))))
+                .check(matches(atPosition(i, hasDescendant(withText(collectors[i].name)))))
         }
     }
 }

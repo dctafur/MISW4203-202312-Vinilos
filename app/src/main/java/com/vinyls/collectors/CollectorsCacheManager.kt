@@ -1,5 +1,7 @@
 package com.vinyls.collectors
 
+import com.vinyls.albums.Album
+
 class CollectorsCacheManager {
 
     companion object {
@@ -13,19 +15,28 @@ class CollectorsCacheManager {
             }
     }
 
-    private var collectors: ArrayList<Collector>? = null
+    private var _collectors: ArrayList<Collector>? = null
+    private val _albums: HashMap<Int, List<Album>> = hashMapOf()
 
     fun addCollector(item: Collector) {
-        if (collectors == null) collectors = ArrayList()
-        collectors!!.add(item)
+        if (_collectors == null) _collectors = ArrayList()
+        _collectors!!.add(item)
     }
 
     fun addCollectors(items: List<Collector>) {
-        if (collectors == null) collectors = ArrayList()
-        collectors!!.addAll(items)
+        if (_collectors == null) _collectors = ArrayList()
+        _collectors!!.addAll(items)
     }
 
     fun getCollectors(): List<Collector>? {
-        return collectors
+        return _collectors
+    }
+
+    fun addCollectorAlbums(collectorId: Int, items: List<Album>) {
+        _albums[collectorId] = items
+    }
+
+    fun getCollectorAlbums(collectorId: Int): List<Album>? {
+        return if (_albums.containsKey(collectorId)) _albums[collectorId] else listOf()
     }
 }

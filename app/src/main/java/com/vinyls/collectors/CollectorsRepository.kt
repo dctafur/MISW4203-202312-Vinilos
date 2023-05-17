@@ -1,7 +1,6 @@
 package com.vinyls.collectors
 
 import com.vinyls.albums.Album
-import com.vinyls.albums.AlbumsApi
 
 class CollectorsRepository {
 
@@ -22,10 +21,27 @@ class CollectorsRepository {
         return collectors.find { item: Collector -> item.id == id }!!
     }
 
-    suspend fun getCollectorAlbums(collector: Collector): List<Album> {
-        val albums = ArrayList<Album>()
-        for (item: CollectorAlbum in collector.collectorAlbums)
-            albums.add(AlbumsApi.retrofitService.getAlbum(item.id))
-        return albums
+    suspend fun getCollectorAlbums(id: Int): List<Album> {
+        val collectorAlbums = CollectorsCacheManager.getInstance().getCollectorAlbums(id)
+        if (collectorAlbums.isNullOrEmpty()) {
+            val elements = CollectorsApi.retrofitService.getCollectorAlbums(id)
+            val items = elements.map { item -> item.album }
+            CollectorsCacheManager.getInstance().addCollectorAlbums(id, items)
+            return items
+        }
+        return collectorAlbums
+    }
+
+    suspend fun aggregateAlbum(collectorId: Int, album: Album) {
+        val body = AggregateAlbum(price = 0, status = "Active")
+        val albumCollector = CollectorsApi.retrofitService.aggregateAlbum(collectorId, album.id, body)
+        val collectorAlbums = getCollectorAlbums(collectorId)
+        if (collectorAlbums.isEmpty()) {
+            val items = listOf(albumCollector.album)
+            CollectorsCacheManager.getInstance().addCollectorAlbums(collectorId, items)
+        }
+        val items = arrayListOf(albumCollector.album)
+        items.addAll(collectorAlbums)
+        CollectorsCacheManager.getInstance().addCollectorAlbums(collectorId, items)
     }
 }

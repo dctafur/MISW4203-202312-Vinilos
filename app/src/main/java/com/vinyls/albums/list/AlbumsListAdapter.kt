@@ -13,8 +13,13 @@ import com.vinyls.R
 import com.vinyls.albums.Album
 
 class AlbumsListAdapter(
-    private val dataset: List<Album>
-) : RecyclerView.Adapter<AlbumsListAdapter.AlbumViewHolder>() {
+    private val dataset: List<Album>,
+    private val onClick: OnClickListener,
+    ) : RecyclerView.Adapter<AlbumsListAdapter.AlbumViewHolder>() {
+
+    interface OnClickListener {
+        fun onClick(item: Album)
+    }
 
     class AlbumViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val coverView: ImageView = view.findViewById(R.id.album_cover)
@@ -33,6 +38,7 @@ class AlbumsListAdapter(
 
         holder.nameView.text = item.name
         holder.releaseYearView.text = item.releaseDate.split("-")[0]
+        holder.itemView.setOnClickListener { onClick.onClick(item) }
 
         item.cover.let {
             val imgUri = item.cover.toUri().buildUpon().scheme("https").build()
