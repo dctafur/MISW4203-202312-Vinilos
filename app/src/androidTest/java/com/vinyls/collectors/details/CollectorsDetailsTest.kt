@@ -28,10 +28,10 @@ var collectors: Array<Collector> = arrayOf(
 
 val albumsLists: Array<Array<Album>> = arrayOf(
     arrayOf(
-        Album(id = 100, name = "Buscando América", cover = "", description = "", genre = "", releaseDate = "")
+        Album(id = 100, name = "Buscando América", cover = "", description = "", genre = "", releaseDate = "", recordLabel = "")
     ),
     arrayOf(
-        Album(id = 101, name = "Poeta del pueblo", cover = "", description = "", genre = "", releaseDate = "")
+        Album(id = 101, name = "Poeta del pueblo", cover = "", description = "", genre = "", releaseDate = "", recordLabel = "")
     )
 )
 

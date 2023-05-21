@@ -16,4 +16,11 @@ class AlbumsRepository {
         // TODO: use the AlbumsService create album method
         AlbumsCacheManager.getInstance().addAlbum(album)
     }
+
+    suspend fun getAlbum(id: Int): Album {
+        val albums = AlbumsCacheManager.getInstance().getAlbums()
+        if (albums.isNullOrEmpty())
+            return AlbumsApi.retrofitService.getAlbum(id)
+        return albums.find { item: Album -> item.id == id }!!
+    }
 }

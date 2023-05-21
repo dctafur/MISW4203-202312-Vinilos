@@ -4,16 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.vinyls.albums.Album
 
 import com.vinyls.albums.create.AlbumsCreateFragment
+import com.vinyls.albums.details.AlbumsDetailsFragment
 import com.vinyls.databinding.FragmentAlbumsListBinding
 
 class AlbumsListFragment : Fragment() {
@@ -33,7 +31,11 @@ class AlbumsListFragment : Fragment() {
         albumsListViewModel.albums.observe(viewLifecycleOwner) {
             albumsList.adapter = AlbumsListAdapter(it, object: AlbumsListAdapter.OnClickListener {
                 override fun onClick(item: Album) {
-                    Toast.makeText(context, "Clicked item", Toast.LENGTH_SHORT).show()
+                    val bundle = Bundle()
+                    val dialog = AlbumsDetailsFragment()
+                    bundle.putInt("id", item.id)
+                    dialog.arguments = bundle
+                    dialog.show(childFragmentManager, "albums-details")
                 }
             })
         }
