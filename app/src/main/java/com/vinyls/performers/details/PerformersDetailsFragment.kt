@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.vinyls.albums.Album
 
 import com.vinyls.albums.list.AlbumsListAdapter
 import com.vinyls.databinding.FragmentPerformersDetailsBinding
@@ -39,7 +41,11 @@ class PerformersDetailsFragment : BottomSheetDialogFragment() {
 
         val albumsList: RecyclerView = binding.performerAlbumsList
         performersDetailsViewModel.albums.observe(viewLifecycleOwner) {
-            albumsList.adapter = AlbumsListAdapter(it)
+            albumsList.adapter = AlbumsListAdapter(it, object: AlbumsListAdapter.OnClickListener {
+                override fun onClick(item: Album) {
+                    Toast.makeText(context, "Clicked item", Toast.LENGTH_SHORT).show()
+                }
+            })
         }
 
         return root
