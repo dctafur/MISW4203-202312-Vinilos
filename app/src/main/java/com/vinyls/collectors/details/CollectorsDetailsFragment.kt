@@ -4,14 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.vinyls.albums.Album
 
 import com.vinyls.albums.list.AlbumsListAdapter
+import com.vinyls.collectors.aggregate.CollectorsAggregateStatus
 import com.vinyls.databinding.FragmentCollectorsDetailsBinding
 
 class CollectorsDetailsFragment : BottomSheetDialogFragment() {
@@ -42,7 +44,21 @@ class CollectorsDetailsFragment : BottomSheetDialogFragment() {
 
         val albumsList: RecyclerView = binding.collectorAlbumsList
         collectorsDetailsViewModel.albums.observe(viewLifecycleOwner) {
-            albumsList.adapter = AlbumsListAdapter(it)
+            albumsList.adapter = AlbumsListAdapter(it, object: AlbumsListAdapter.OnClickListener {
+                override fun onClick(item: Album) {
+                    Toast.makeText(context, "Clicked item", Toast.LENGTH_SHORT).show()
+                }
+            })
+        }
+
+        collectorsDetailsViewModel.status.observe(viewLifecycleOwner) { status ->
+            when(status) {
+                CollectorDetailsStatus.ERROR -> {
+                    Toast.makeText(context, "¡Ha ocurrido un error inesperado!", Toast.LENGTH_SHORT).show()
+                    dismiss()
+                }
+                else -> {}
+            }
         }
 
         return root

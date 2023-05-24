@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_performers_list"
-        android:name="com.vinyls.performers.list.PerformerListFragment"
+        android:name="com.vinyls.performers.list.PerformersListFragment"
         android:label="@string/title_performers"
-        tools:layout="@layout/fragment_performer_list" />
+        tools:layout="@layout/fragment_performers_list" />
 
     <fragment
         android:id="@+id/navigation_collectors_list"
