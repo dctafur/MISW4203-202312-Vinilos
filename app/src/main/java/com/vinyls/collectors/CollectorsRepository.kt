@@ -34,7 +34,7 @@ class CollectorsRepository {
 
     suspend fun aggregateAlbum(collectorId: Int, album: Album) {
         val body = AggregateAlbum(price = 0, status = "Active")
-        val albumCollector = CollectorsApi.retrofitService.aggregateAlbum(collectorId, album.id, body)
+        val albumCollector = CollectorsApi.retrofitService.aggregateAlbum(collectorId, album.id!!, body)
         val collectorAlbums = getCollectorAlbums(collectorId)
         val items = arrayListOf(albumCollector.album)
         items.addAll(collectorAlbums)
