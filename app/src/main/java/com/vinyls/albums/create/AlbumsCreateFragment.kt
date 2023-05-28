@@ -48,6 +48,7 @@ class AlbumsCreateFragment : BottomSheetDialogFragment() {
                 description = description.editText?.text.toString(),
                 releaseDate = releaseDate.editText?.text.toString(),
                 genre = genre.editText?.text.toString(),
+                recordLabel = "",
             )
             albumsCreateViewModel.createAlbum(album)
         }

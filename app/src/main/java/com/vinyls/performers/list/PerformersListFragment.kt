@@ -37,7 +37,6 @@ class PerformersListFragment : Fragment() {
                     dialog.show(childFragmentManager, "performers-details")
                 }
             })
-            //PerformersListAdapter(it)
         }
 
         return root
