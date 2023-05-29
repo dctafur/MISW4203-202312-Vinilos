@@ -4,9 +4,10 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.http.Body
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 private const val BASE_URL = "https://misw-4203-vynils.herokuapp.com/"
 
@@ -26,6 +27,12 @@ interface AlbumsService {
 
     @GET("albums/{id}")
     suspend fun getAlbum(@Path("id") id: Int): Album
+
+    @POST("albums")
+    suspend fun addAlbum(
+        @Body body: Album
+    ): Album
+
 }
 
 object AlbumsApi {

@@ -19,10 +19,10 @@ import com.vinyls.albums.Album
 import com.vinyls.atPosition
 
 var albums: Array<Album> = arrayOf(
-    Album(id = 100, name = "Buscando América", cover = "", description = "", genre = "", releaseDate = ""),
-    Album(id = 101, name = "Poeta del pueblo", cover = "", description = "", genre = "", releaseDate = ""),
-    Album(id = 102, name = "A Night at the Opera", cover = "", description = "", genre = "", releaseDate = ""),
-    Album(id = 103, name = "A Day at the Races", cover = "", description = "", genre = "", releaseDate = ""),
+    Album(id = 100, name = "Buscando América", cover = "", description = "", genre = "", releaseDate = "", recordLabel = "Fania Records"),
+    Album(id = 101, name = "Poeta del pueblo", cover = "", description = "", genre = "", releaseDate = "", recordLabel = "Fania Records"),
+    Album(id = 102, name = "A Night at the Opera", cover = "", description = "", genre = "", releaseDate = "", recordLabel = "Fania Records"),
+    Album(id = 103, name = "A Day at the Races", cover = "", description = "", genre = "", releaseDate = "", recordLabel = "Fania Records"),
 )
 
 @LargeTest
