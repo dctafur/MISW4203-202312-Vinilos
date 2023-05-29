@@ -13,7 +13,7 @@ class AlbumsRepository {
     }
 
     suspend fun createAlbum(album: Album) {
-        // TODO: use the AlbumsService create album method
+        AlbumsApi.retrofitService.addAlbum(album)
         AlbumsCacheManager.getInstance().addAlbum(album)
     }
 

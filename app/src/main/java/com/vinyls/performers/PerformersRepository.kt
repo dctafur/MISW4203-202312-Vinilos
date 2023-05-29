@@ -25,7 +25,7 @@ class PerformersRepository {
     suspend fun getPerformerAlbums(performer: Performer): List<Album> {
         val albums = ArrayList<Album>()
         for (item: Album in performer.albums)
-            albums.add(AlbumsApi.retrofitService.getAlbum(item.id))
+            albums.add(AlbumsApi.retrofitService.getAlbum(item.id!!))
         return albums
     }
 }

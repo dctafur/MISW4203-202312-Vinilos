@@ -42,13 +42,13 @@ class AlbumsCreateFragment : BottomSheetDialogFragment() {
         val addButton: Button = binding.addButton
         addButton.setOnClickListener {
             val album = Album(
-                id = 0,
+                id=null,
                 name = name.editText?.text.toString(),
                 cover = cover.editText?.text.toString(),
                 description = description.editText?.text.toString(),
                 releaseDate = releaseDate.editText?.text.toString(),
                 genre = genre.editText?.text.toString(),
-                recordLabel = "",
+                recordLabel = "Fania Records"
             )
             albumsCreateViewModel.createAlbum(album)
         }
