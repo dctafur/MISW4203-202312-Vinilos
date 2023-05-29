@@ -1,6 +1,5 @@
 package com.vinyls.collectors.aggregate
 
-import androidx.appcompat.widget.MenuPopupWindow.MenuDropDownListView
 import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
@@ -32,7 +31,7 @@ var collectors: Array<Collector> = arrayOf(
     Collector(id = 101, name = "Jaime Monsalve", telephone = "3012357936", email = "jmonsalve@rtvc.com.co"),
 )
 
-val newAlbum = Album(id = 103, name = "A Day at the Races", cover = "", description = "", genre = "", releaseDate = "")
+val newAlbum = Album(id = 103, name = "A Day at the Races", cover = "", description = "", genre = "", releaseDate = "", recordLabel = "")
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)

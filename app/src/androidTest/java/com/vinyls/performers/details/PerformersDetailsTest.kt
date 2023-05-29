@@ -28,8 +28,8 @@ var performers: Array<Performer> = arrayOf(
 
 val albumsLists: Array<Array<Album>> = arrayOf(
     arrayOf(
-        Album(id = 103, name = "A Day at the Races", cover = "", description = "", genre = "", releaseDate = ""),
-        Album(id = 102, name = "A Night at the Opera", cover = "", description = "", genre = "", releaseDate = ""),
+        Album(id = 103, name = "A Day at the Races", cover = "", description = "", genre = "", releaseDate = "", recordLabel = ""),
+        Album(id = 102, name = "A Night at the Opera", cover = "", description = "", genre = "", releaseDate = "", recordLabel = ""),
     ),
     arrayOf(),
 )
