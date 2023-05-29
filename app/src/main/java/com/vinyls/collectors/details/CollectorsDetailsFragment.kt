@@ -13,7 +13,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.vinyls.albums.Album
 
 import com.vinyls.albums.list.AlbumsListAdapter
-import com.vinyls.collectors.aggregate.CollectorsAggregateStatus
 import com.vinyls.databinding.FragmentCollectorsDetailsBinding
 
 class CollectorsDetailsFragment : BottomSheetDialogFragment() {

@@ -1,11 +1,9 @@
 package com.vinyls.albums.list
 
-import android.widget.Button
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.vinyls.R
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
