@@ -33,7 +33,7 @@ class AlbumsListFragment : Fragment() {
                 override fun onClick(item: Album) {
                     val bundle = Bundle()
                     val dialog = AlbumsDetailsFragment()
-                    bundle.putInt("id", item.id)
+                    bundle.putInt("id", item.id!!)
                     dialog.arguments = bundle
                     dialog.show(childFragmentManager, "albums-details")
                 }
