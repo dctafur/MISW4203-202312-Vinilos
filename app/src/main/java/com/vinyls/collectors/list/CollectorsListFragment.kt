@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.vinyls.collectors.Collector
 import com.vinyls.collectors.aggregate.CollectorsAggregateFragment
-import com.vinyls.collectors.aggregate.CollectorsAggregateStatus
 import com.vinyls.collectors.details.CollectorsDetailsFragment
 import com.vinyls.databinding.FragmentCollectorsListBinding
 
