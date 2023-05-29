@@ -8,13 +8,13 @@ import kotlinx.coroutines.launch
 import java.lang.Exception
 
 import com.vinyls.performers.Performer
-import com.vinyls.performers.PerformerRepository
+import com.vinyls.performers.PerformersRepository
 
 enum class PerformerStatus { LOADING, ERROR, DONE }
 
 class PerformerListViewModel : ViewModel() {
 
-    private val _performerRepository = PerformerRepository()
+    private val _performersRepository = PerformersRepository()
 
     private val _status = MutableLiveData<PerformerStatus>()
     val status: LiveData<PerformerStatus> = _status
@@ -30,7 +30,7 @@ class PerformerListViewModel : ViewModel() {
         viewModelScope.launch {
             _status.value = PerformerStatus.LOADING
             try {
-                _performers.value = _performerRepository.getPerformers()
+                _performers.value = _performersRepository.getPerformers()
                 _status.value = PerformerStatus.DONE
             } catch (e: Exception) {
                 _performers.value = listOf()

@@ -37,7 +37,7 @@ class CollectorListTest {
         Thread.sleep(4000)
         for (i in collectors.indices) {
             onView(withId(R.id.collectors_list))
-            .check(matches(atPosition(i, hasDescendant(withText(collectors[i].name)))))
+                .check(matches(atPosition(i, hasDescendant(withText(collectors[i].name)))))
         }
     }
 }

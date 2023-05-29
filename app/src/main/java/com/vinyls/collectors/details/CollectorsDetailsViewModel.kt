@@ -30,9 +30,8 @@ class CollectorsDetailsViewModel : ViewModel() {
         viewModelScope.launch {
             _status.value = CollectorDetailsStatus.LOADING
             try {
-                val collector = _collectorsRepository.getCollector(id)
-                _albums.value = _collectorsRepository.getCollectorAlbums(collector)
-                _collector.value = collector
+                _collector.value = _collectorsRepository.getCollector(id)
+                _albums.value = _collectorsRepository.getCollectorAlbums(id)
                 _status.value = CollectorDetailsStatus.DONE
             } catch (e: Exception) {
                 _status.value = CollectorDetailsStatus.ERROR

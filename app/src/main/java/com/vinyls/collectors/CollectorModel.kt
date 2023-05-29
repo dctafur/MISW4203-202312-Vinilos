@@ -1,5 +1,7 @@
 package com.vinyls.collectors
 
+import com.vinyls.albums.Album
+
 data class Collector(
     val id: Int,
     val telephone: String,
@@ -12,4 +14,10 @@ data class CollectorAlbum(
     val id: Int,
     val price: Int,
     val status: String,
+    val album: Album
+)
+
+data class AggregateAlbum(
+    val price: Int,
+    val status: String
 )
